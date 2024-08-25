@@ -1,0 +1,70 @@
+{
+  "109220-Naturalization": [
+    {
+      "id": 1,
+      "sender": "Mary Hilda",
+      "message": "Just Fill me in for his updates yea?",
+      "time": "19:32",
+      "isSender": false,
+      "isRead": true
+    },
+    {
+      "id": 2,
+      "sender": "You",
+      "message": "No worries. It will be completed ASAP. I've asked him yesterday",
+      "time": "19:32",
+      "isSender": true,
+      "isRead": true
+    },
+    {
+      "id": 3,
+      "sender": "Mary Hilda",
+      "message": "Hello Obaidullah, I will be your case advisor for case #029290. I have assigned some homework for you to fill. Please keep up with the due dates. Should you have any questions, you can message me anytime. Thanks.",
+      "time": "19:32",
+      "isSender": false,
+      "isRead": true
+    },
+    {
+      "id": 4,
+      "sender": "You",
+      "message": "Please contact Mary for questions regarding the case bcs she will be managing your forms from now on! Thanks Mary.",
+      "time": "19:32",
+      "isSender": true,
+      "isRead": true
+    },
+    {
+      "id": 5,
+      "sender": "Mary Hilda",
+      "message": "Sure thing, Claren",
+      "time": "19:32",
+      "isSender": false,
+      "isRead": true
+    },
+    {
+      "id": 6,
+      "sender": "Obaidullah Amarkhil",
+      "message": "Morning. I'll try to do them. Thanks",
+      "time": "19:32",
+      "isSender": false,
+      "isRead": false
+    }
+  ],
+  "FastVisaSupport": [
+    {
+      "id": 1,
+      "sender": "FastVisa Support",
+      "message": "Hey there. Welcome to your inbox! Contact us for more information and help about anything! We'll send you a response as soon as possible.",
+      "time": "19:32",
+      "isSender": false,
+      "isRead": true
+    },
+    {
+      "id": 2,
+      "sender": "You",
+      "message": "Hi, I need help with something can you help me?",
+      "time": "19:32",
+      "isSender": true,
+      "isRead": true
+    }
+  ]
+}
