@@ -1,50 +1,29 @@
-# React + TypeScript + Vite
+# Simpul Tech Surabaya Frontend Test
+This project is created to complete assignment of Skill Test at Simpul Tech Surabaya Frontend Developer.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Tackled Challenge
+1. Foundation
+   - Chat
+   - Todo List
+2. Bonus Round
+   - Todo List using Tags
 
-Currently, two official plugins are available:
+# What are Libraries/Tech that Used in This Project?
+- [React + Vite]([https://www.npmjs.com/package/zod](https://vitejs.dev/))
+- [Tailwind]([https://www.npmjs.com/package/lodash.debounce](https://tailwindcss.com/))
+- [Intersection Observer]([https://www.npmjs.com/package/react-hot-toast](https://www.npmjs.com/package/react-intersection-observer))
+- [Indexed DB]([https://www.npmjs.com/package/react-icons](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API))
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# How to Run This Project?
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Using Bun
+```
+bun install
+bun run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## Using Yarn
+```
+yarn install
+yarn dev
 ```
