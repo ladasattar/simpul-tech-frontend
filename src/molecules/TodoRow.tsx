@@ -43,7 +43,6 @@ const TodoRow: React.FC<ITodo> = (props) => {
     if (todoContent.current) setTodoHeight(todoContent.current.clientHeight);
   }, [todoContent]);
 
-  // Close tag options when clicked outside
   React.useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (

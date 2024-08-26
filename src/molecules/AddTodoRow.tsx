@@ -1,15 +1,21 @@
 import React from "react";
+import Tags from "../components/tags";
 import useTodo from "../hooks/useTodo";
 import PenSvg from "@assets/svg/pen.svg";
 import MoreSvg from "@assets/svg/more.svg";
 import BookmarkSvg from "@assets/svg/bookmark.svg";
 import ScheduleSvg from "@assets/svg/schedule.svg";
 import ButtonBase from "../components/buttons/ButtonBase";
+import { tags } from "../constants/tags";
 
 const AddTodoRow = () => {
-  const { handleAddTodo } = useTodo();
   const inputDateRef = React.useRef<HTMLInputElement>(null);
   const spanDateRef = React.useRef<HTMLSpanElement>(null);
+  const tagsPopupRef = React.useRef<HTMLDivElement>(null);
+  const { handleAddTodo } = useTodo();
+  const [isTagOptionsShow, setIsTagOptionsShow] =
+    React.useState<boolean>(false);
+  const [selectedTags, setSelectedTags] = React.useState<string[]>([]);
 
   React.useEffect(() => {
     const handleBlur = () => {
@@ -34,6 +40,20 @@ const AddTodoRow = () => {
       inputRef?.removeEventListener("focus", handleFocus);
     };
   }, [inputDateRef]);
+
+  React.useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        tagsPopupRef.current &&
+        !tagsPopupRef.current.contains(e.target as Node)
+      )
+        setIsTagOptionsShow(false);
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [tagsPopupRef]);
 
   return (
     <section>
@@ -120,11 +140,50 @@ const AddTodoRow = () => {
             ></textarea>
           </div>
 
-          <div className="flex items-start gap-[18px] mb-5 bg-[#F9F9F9] px-2 py-2.5 rounded-[5px] -ml-2.5">
-            <img src={BookmarkSvg} alt="Bookmark" className="grayscale" />
-            <div>
-              <p className="text-gray-light">Click to add new tags</p>
+          <div
+            className="flex items-start mb-5 gap-[18px] bg-[#F9F9F9] px-2 py-2.5 rounded-[5px] -ml-2.5 cursor-pointer relative z-50"
+            onClick={(e) => {
+              if (tagsPopupRef.current) {
+                tagsPopupRef.current.style.left = e.pageX + "px";
+                tagsPopupRef.current.style.top = e.pageY / 2 + "px";
+              }
+              setIsTagOptionsShow(!isTagOptionsShow);
+            }}
+          >
+            <img src={BookmarkSvg} alt="Bookmark" />
+            <div className="flex items-center gap-2.5 flex-wrap">
+              {selectedTags &&
+                selectedTags.map((tag, index) => (
+                  <Tags
+                    key={index}
+                    name={tag}
+                    onClick={() =>
+                      setSelectedTags(selectedTags.filter((t) => t !== tag))
+                    }
+                  />
+                ))}
             </div>
+            <div
+              ref={tagsPopupRef}
+              className={`fixed bg-white border border-gray-light rounded-[5px] left-10 top-0 flex flex-col w-[277px] py-[14px] px-4 gap-2.5 ${
+                isTagOptionsShow ? "opacity-100 visible" : "opacity-0 invisible"
+              }`}
+            >
+              {tags.map((tag, index) => (
+                <Tags
+                  key={index}
+                  name={tag.name}
+                  extra="!w-full"
+                  disabled={selectedTags?.includes(tag.name)}
+                  onClick={() => setSelectedTags([...selectedTags, tag.name])}
+                />
+              ))}
+            </div>
+            <input
+              type="hidden"
+              name="tags"
+              value={selectedTags.length > 0 ? selectedTags.join(",") : ""}
+            />
           </div>
 
           <div className="mb-5">

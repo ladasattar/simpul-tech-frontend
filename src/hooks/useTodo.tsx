@@ -41,6 +41,7 @@ const useTodo = (props: { isShow: boolean } = { isShow: false }) => {
       title: { value: string };
       taskDate: { value: Date };
       description: { value: string };
+      tags: { value: string };
     };
 
     const id =
@@ -48,6 +49,7 @@ const useTodo = (props: { isShow: boolean } = { isShow: false }) => {
     const title = form.title.value;
     const date = form.taskDate.value;
     const description = form.description.value;
+    const tags = form.tags.value.split(",");
     const isCompleted = false;
 
     try {
@@ -56,6 +58,7 @@ const useTodo = (props: { isShow: boolean } = { isShow: false }) => {
         title,
         date,
         description,
+        tags,
         isCompleted,
       });
 
